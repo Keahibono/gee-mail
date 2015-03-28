@@ -1,18 +1,54 @@
 <html>
-	<head>
-		<script src="js/mail-generator.js"></script>
-		<link href="css/style.css" rel="stylesheet" media="screen">
-    <script>
-      window.onload = function(){
-        // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
-        // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
-      };
-    </script>
-	</head>
-	<body>
-		<div class="container" id="main">
-			Build Me!
-		</div>
-	</body>
+<head>
+<script src="js/mail-generator.js"></script>
+<link href="css/style.css" rel="stylesheet" media="screen">
+<script>
+	window.onload = function(){
+// ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE.
+// We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
+		loadGeeMails();
+
+		for(key in window.geemails){
+			var emailDate = window.geemails[key].date;
+			var emailSubject = window.geemails[key].subject;
+			var emailSender = window.geemails[key].sender;
+			var emailBody = window.geemails[key].body;
+
+			//console.log(window.geemails);
+
+			document.write("<div>" + emailDate + "</div>");
+			document.write(emailSubject);
+			document.write(emailSender);
+			document.write(emailBody);
+		
+
+		}
+
+			/*var emailTotal = document.getElementById("total");
+			var counter = window.geemails.length;
+			//console.log(counter);
+			var grandTotal = document.createTextNode(counter);
+			console.log(grandTotal);
+			//emailTotal.appendChild(grandTotal);
+			document.getElementById('total').appendChild(counter);*/
+
+			var total = document.getElementById("total"); //fvc production code
+		        	
+		    var theTotal = window.geemails.length;
+		        	
+		    var counter = document.createTextNode(theTotal);
+		        	
+		    total.appendChild(counter);
+
+};
+</script>
+</head>
+<body>
+<div class="container" id="main">
+	<div id="total">GeeMail Total
+
+	</div>
+
+</div>
+</body>
 </html>
